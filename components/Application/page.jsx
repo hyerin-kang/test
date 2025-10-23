@@ -2,8 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import icoLink from "@/public/images/icon/ico-link-arrow.svg";
-import styled from "styled-components";
-
+import { SectionTitle, TitleHover } from "./styledComponents";
 export default function Application() {
   const applicationData = [
     {
@@ -105,10 +104,10 @@ export default function Application() {
   console.log(applicationData, "applicationData");
   return (
     <div>
-      Application
+      <SectionTitle>Applications</SectionTitle>
       {applicationData.map((item, index) => {
         return (
-          <div key={index} className="grid lg:grid-cols-4">
+          <div key={index} className="grid lg:grid-cols-4 h-dvh">
             <div>{item.codeValue.value}</div>
             <TitleHover>
               <h4 className="title">
@@ -140,24 +139,3 @@ export default function Application() {
     </div>
   );
 }
-const TitleHover = styled.div`
-  display: inline-block;
-  .title {
-    span {
-      background: linear-gradient(to right, white, white),
-        linear-gradient(to right, black, black);
-      background-size: 100% 1px, 0 1px;
-      background-position: 100% 100%, 0 100%;
-      background-repeat: no-repeat;
-      transition: background-size 400ms;
-    }
-  }
-
-  &:hover {
-    .title {
-      span {
-        background-size: 0 1px, 100% 1px;
-      }
-    }
-  }
-`;
