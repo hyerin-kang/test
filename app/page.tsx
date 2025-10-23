@@ -1,9 +1,9 @@
-import Image from "next/image";
+import Application from "@/components/Application/page";
 
 export default function Home() {
   return (
     <div>
-      <main className="w-full bg-amber-400 p-10 text-center">test</main>
+      <Application />
     </div>
   );
 }
