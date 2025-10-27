@@ -1,0 +1,82 @@
+.parallax {
+  &.first-parallax {
+    // background: red;
+    // border: 1px solid red;
+  }
+  height: 100vh;
+  position: sticky;
+  top: 0px;
+  pointer-events: none;
+  .section-title {
+    display: block;
+    font-size: 30px;
+    padding: 20px;
+    padding-top: 5px;
+    background-color: antiquewhite;
+  }
+  .parallax-item {
+    pointer-events: auto !important;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    position: relative;
+    top: 0;
+    background: #fff;
+    width: 100%;
+    height: calc(100% - 145px);
+    transform-origin: top;
+    border-top: 1px solid red;
+    padding: 20px;
+    padding-bottom: 0;
+    .item-wrap {
+      grid-column: span 3 / span 3;
+      display: flex;
+      [class$="-area"] {
+        flex-basis: 20%;
+      }
+      .title-hover-area {
+        flex-basis: 60%;
+        height: fit-content;
+        display: inline-block;
+        .title {
+          font-size: 20px;
+          span {
+            background: linear-gradient(to right, white, white),
+              linear-gradient(to right, black, black);
+            background-size: 100% 1px, 0 1px;
+            background-position: 100% 100%, 0 100%;
+            background-repeat: no-repeat;
+            transition: background-size 400ms;
+          }
+        }
+
+        &:hover {
+          .title {
+            span {
+              background-size: 0 1px, 100% 1px;
+            }
+          }
+        }
+      }
+      .ico-link-area {
+        img {
+          margin-left: auto;
+        }
+      }
+    }
+    .item-title {
+      position: relative;
+      padding-left: 14px;
+      &::before {
+        content: "";
+        width: 5px;
+        height: 5px;
+        background: green;
+        border-radius: 100%;
+        display: block;
+        position: absolute;
+        top: 7px;
+        left: 0;
+      }
+    }
+  }
+}
