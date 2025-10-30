@@ -67,8 +67,8 @@
           .depth1-menu {
             width: 200px;
             position: relative;
-            > li > span,
-            > li > a {
+            li span,
+            li a {
               cursor: pointer;
               display: block;
               width: 100%;
@@ -92,14 +92,13 @@
             height: 100%;
             position: absolute;
             top: 0;
-            left: 300px;
+            left: 200px;
             width: 100%;
             li {
               display: block;
             }
             li a {
               display: block;
-              padding: 10px 0;
             }
           }
         }
