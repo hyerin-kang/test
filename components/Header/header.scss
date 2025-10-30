@@ -9,25 +9,89 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 0 0 40px;
-  box-sizing: border-box;
-  align-items: center;
+  padding-left: 40px;
   .left {
     display: flex;
     align-items: center;
-    > ul {
-      margin-left: 60px;
+    height: 100%;
+    .nav {
       display: flex;
+      margin-left: 60px;
       height: 100%;
-      > li {
+      li.nav-item {
+        padding: 0 10px;
         display: flex;
         align-items: center;
-        height: 100%;
-        padding: 0 10px;
-        position: relative;
         > span {
           color: white;
           cursor: pointer;
+        }
+        .gnb-menu {
+          position: absolute;
+          top: 88px;
+          left: 0;
+          width: 100%;
+          background: #fff;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          display: flex;
+          height: 300px;
+          .gnb-title {
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            min-width: 200px;
+            height: 30px;
+
+            &::before {
+              content: "";
+              width: 5px;
+              height: 5px;
+              border-radius: 100%;
+              background: #30ae56;
+              margin-right: 8px;
+              display: inline-flex;
+              margin-top: -5px;
+            }
+          }
+          .depth1-menu {
+            width: 200px;
+            position: relative;
+            > li > span,
+            > li > a {
+              cursor: pointer;
+              display: block;
+              width: 100%;
+              padding: 10px 0 10px 60px;
+              &:hover {
+                background: rgba(48, 174, 86, 0.1);
+                color: #30ae56;
+              }
+            }
+            &::after {
+              content: "";
+              width: 1px;
+              height: calc(100% + 40px);
+              background: #ccc;
+              position: absolute;
+              top: -20px;
+              right: 0px;
+            }
+          }
+          .depth2-menu {
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 300px;
+            width: 100%;
+            li {
+              display: block;
+            }
+            li a {
+              display: block;
+              padding: 10px 0;
+            }
+          }
         }
       }
     }

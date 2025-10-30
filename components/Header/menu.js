@@ -1,13 +1,16 @@
 export const menu = {
   data: [
     {
-      value: "적용분야",
+      //item
+      value: "적용분야", // item.value
       url: "/applications",
       depth: [
+        //이거를 또 맵 돌려야함 (depth1-menu)
         {
           value: "Automotive",
           url: "/applications/automotive",
           depth: [
+            //이거를 또 맵 돌려야함 (depth2-menu)
             {
               value: "Exterior",
               url: "/applications/automotive/exterior",
