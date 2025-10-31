@@ -10,10 +10,13 @@ import IcoSearchBlack from "@/public/images/icon/ico-search-black.svg";
 import IcoCloseBk from "@/public/images/icon/ico-close-bk.svg";
 import { motion, AnimatePresence } from "framer-motion";
 import { searchArea } from "@/lib/framerMotion";
+import { useRouter } from "next/navigation";
 
 const Header = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
+  const router = useRouter();
 
   const headerClass = `
     header 
@@ -22,7 +25,9 @@ const Header = () => {
   `;
 
   const handleSearchPage = () => {
-    router.push("/search");
+    if (searchInput.trim() === "") return;
+    router.push(`/search?query=${encodeURIComponent(searchInput)}`);
+    setIsSearchOpen(false);
   };
 
   return (
@@ -99,7 +104,9 @@ const Header = () => {
                         id="searchInput"
                         name="searchInput"
                         type="text"
+                        value={searchInput}
                         placeholder="검색어를 입력하세요"
+                        onChange={(e) => setSearchInput(e.target.value)}
                       />
                       <button onClick={handleSearchPage}>
                         <Image src={IcoSearchBlack} alt="ico-search-btn" />
