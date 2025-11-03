@@ -8,6 +8,16 @@ import { applicationData } from "./data.js";
 export default function Application() {
   return (
     <div>
+      <div
+        style={{
+          background: "black",
+          padding: "100px",
+          height: "500px",
+          color: "red",
+        }}
+      >
+        123123
+      </div>
       <div style={{ position: "sticky" }}>
         {applicationData.map((item, index) => {
           return (

@@ -2,10 +2,12 @@
   position: fixed;
   top: 0;
   left: 0;
-  background: black;
+  background-color: transparent;
   width: 100%;
   height: 88px;
   z-index: 999;
+  border-bottom: 1px solid #ccc;
+  transition: ease-in-out 0.5s;
 
   .header-inner {
     padding-left: 40px;
@@ -22,7 +24,6 @@
       display: block;
       cursor: pointer;
       height: auto;
-      background: red;
       background: url(./../../public/images/common/header-logo.svg) center
         no-repeat;
     }
@@ -118,6 +119,7 @@
         padding: 0 10px;
         display: flex;
         align-items: center;
+        color: #fff;
         span {
           color: #30ae56;
         }
@@ -167,9 +169,60 @@
   }
 }
 
+//스크롤이벤트
+
+.header.scroll-down {
+  top: -89px;
+  transition: ease-in-out 0.5s;
+}
+.header.scroll-up {
+  background: #fff;
+  color: #000;
+  .left {
+    .logo {
+      background: url("./../../public/images/common/header-logo-open.svg")
+        center no-repeat;
+    }
+    .nav {
+      li.nav-item {
+        span {
+          color: #000;
+        }
+      }
+    }
+  }
+}
+.header.scroll-0 {
+  background: transparent;
+  color: white;
+  .left {
+    .logo {
+      background: url("./../../public/images/common/header-logo.svg") center
+        no-repeat;
+    }
+    .nav {
+      li.nav-item {
+        span {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+// .header.scroll-0.scroll-up {
+//   .left {
+//     .logo {
+//       background: url("./../../public/images/common/header-logo-open.svg")
+//         center no-repeat;
+//     }
+//   }
+// }
 .header[class*="open"] {
-  a.logo {
-    background-image: url(./../../public/images/common/header-logo-open.svg);
+  .left {
+    .logo {
+      background-image: url(./../../public/images/common/header-logo-open.svg);
+    }
   }
   background: #fff;
   border-bottom: 1px solid #ccc;
@@ -181,9 +234,26 @@
   }
   &.open {
     // background: red;
-    li.nav-item {
-      > span {
+    span,
+    a {
+      color: #000 !important;
+    }
+    .gnb-menu {
+      .gnb-title {
         color: #000;
+      }
+    }
+    .depth1-menu {
+      span:hover,
+      a:hover {
+        background: rgba(48, 174, 86, 0.1);
+        color: #30ae56 !important;
+      }
+    }
+
+    li.nav-item {
+      span {
+        color: #000 !important;
       }
     }
   }

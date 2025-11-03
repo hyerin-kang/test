@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { depthLi, gnbContainer } from "@/lib/framerMotion";
+import Link from "next/link";
 
 const GnbMenu = ({ gnbMenuName, gnbMenuData }) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -16,20 +17,14 @@ const GnbMenu = ({ gnbMenuName, gnbMenuData }) => {
       >
         {gnbMenuData.map((depth1, depth1Idx) => (
           <motion.li variants={depthLi} key={depth1Idx}>
-            {depth1.depth && depth1.depth.length > 0 ? (
-              <span
-                onMouseOver={() => {
-                  setHoveredIndex(depth1Idx);
-                }}
-                // onMouseLeave={() => {
-                //   setHoveredIndex(null);
-                // }}
-              >
-                {depth1.value}
-              </span>
-            ) : (
-              <a href={depth1.url}>{depth1.value}</a>
-            )}
+            <Link
+              href={depth1.url}
+              onMouseOver={() => {
+                setHoveredIndex(depth1Idx);
+              }}
+            >
+              {depth1.value}
+            </Link>
 
             {hoveredIndex === depth1Idx &&
               depth1.depth &&

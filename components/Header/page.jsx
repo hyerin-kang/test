@@ -2,7 +2,7 @@
 import Image from "next/image";
 import "./header.scss";
 import { menu } from "./menu.js";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import GnbMenu from "./GnbMenu/page";
 import Link from "next/link";
 import IcoSearchWh from "@/public/images/icon/ico-search-white.svg";
@@ -18,10 +18,37 @@ const Header = () => {
   const [searchInput, setSearchInput] = useState("");
   const router = useRouter();
 
+  //헤더 스크롤 이벤트
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isScrollDown, setIsScrollDown] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  console.log(lastScrollY, "lastScrollY");
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentY = window.scrollY;
+
+      // 스크롤 방향 감지
+      setIsScrollDown(currentY > lastScrollY);
+
+      // 스크롤 여부 감지
+      setIsScrolled(currentY > 100);
+
+      setLastScrollY(currentY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [lastScrollY]);
+
   const headerClass = `
     header 
     ${hoveredIndex !== null ? "open" : ""} 
-    ${isSearchOpen ? "open-search" : ""}
+    ${isSearchOpen ? "open-search" : ""} 
+    ${isScrollDown ? "scroll-down" : "scroll-up"}
+    ${lastScrollY == 0 ? "scroll-0" : ""}
   `;
 
   const handleSearchPage = () => {
@@ -31,7 +58,7 @@ const Header = () => {
   };
 
   return (
-    <div className={`header ${headerClass}`}>
+    <div suppressHydrationWarning className={`header ${headerClass}`}>
       <div className="header-inner">
         <div className="left">
           <a href="/" className="logo"></a>
@@ -77,17 +104,19 @@ const Header = () => {
             </li>
             <li className="changeLan">언어변경</li>
             <li className="search-btn">
-              <button
-                onClick={() => {
-                  setIsSearchOpen(!isSearchOpen);
-                }}
-              >
-                {isSearchOpen ? (
-                  <Image src={IcoCloseBk} alt="ico-close-btn" />
-                ) : (
-                  <Image src={IcoSearchWh} alt="ico-search-btn" />
-                )}
+              <button onClick={() => setIsSearchOpen(!isSearchOpen)}>
+                <Image
+                  src={
+                    isSearchOpen
+                      ? IcoCloseBk // 검색창 열려 있으면 닫기 버튼
+                      : lastScrollY === 0
+                      ? IcoSearchWh // 맨 위에 있을 땐 흰색 검색 아이콘
+                      : IcoSearchBlack // 스크롤 했을 땐 검정색 검색 아이콘
+                  }
+                  alt="ico-search-btn"
+                />
               </button>
+
               {/* 검색버튼 클릭시 */}
 
               <AnimatePresence mode="wait">
