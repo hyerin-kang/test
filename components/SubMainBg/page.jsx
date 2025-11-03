@@ -16,7 +16,7 @@ export const SubMainBg = ({ data, video }) => {
         <div className="max-w-screen-3xl w-full h-full mx-auto">
           <div className="flex h-full flex-col justify-between lg:p-[40px] p-[20px] border-b-[1px] border-[#30AE56] border-opacity-[0.2]">
             {/* 페이지 경로 */}
-            <Breadcrumb data={data} lang={lang} />
+            {/* <Breadcrumb data={data} lang={lang} /> */}
           </div>
         </div>
       </div>

@@ -1,8 +1,7 @@
 "use client";
 import Image from "next/image";
 import "./header.scss";
-import { menu } from "./menu.js";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import GnbMenu from "./GnbMenu/page";
 import Link from "next/link";
 import IcoSearchWh from "@/public/images/icon/ico-search-white.svg";
@@ -11,8 +10,10 @@ import IcoCloseBk from "@/public/images/icon/ico-close-bk.svg";
 import { motion, AnimatePresence } from "framer-motion";
 import { searchArea } from "@/lib/framerMotion";
 import { useRouter } from "next/navigation";
+import { MenuContext } from "@/context/MenuContext";
 
 const Header = () => {
+  const { menuData } = useContext(MenuContext); // 메뉴데이터 api 가져오기
   const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchInput, setSearchInput] = useState("");
@@ -63,7 +64,7 @@ const Header = () => {
         <div className="left">
           <a href="/" className="logo"></a>
           <ul className="nav">
-            {menu.data.map((item, index) => {
+            {menuData.map((item, index) => {
               return (
                 <li
                   key={index}
