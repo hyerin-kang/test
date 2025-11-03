@@ -1,17 +1,15 @@
 "use client";
 import { useContext } from "react";
 import { SubMainBg } from "../../../components/SubMainBg/page";
-import { ApplicatedProduct } from "./components/ApplicatedProduct";
-import { NewsArea } from "./components/NewsArea";
-import { TabArea } from "./components/TabArea";
 import { MenuContext } from "./../../../context/MenuContext";
 import { applicationData } from "./../../../components/Application/data";
+import { AutomotiveContent } from "./components/AutomotiveContent";
 // import AutomotiveVideo from "@/public/video/application/Automotive-video.mp4";
+import "./automotive.scss";
 
 export default function page() {
   const { menuData } = useContext(MenuContext);
 
-  console.log(applicationData, "applicationData");
   return (
     <div>
       <SubMainBg
@@ -30,9 +28,7 @@ export default function page() {
         title={["Automotive"]}
         subText={applicationData?.[1]?.subTitle}
       />
-      <ApplicatedProduct />
-      <TabArea />
-      <NewsArea />
+      <AutomotiveContent />
     </div>
   );
 }
