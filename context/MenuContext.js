@@ -1,17 +1,18 @@
 "use client";
 import { createContext, useEffect, useState } from "react";
-import { menu } from "./../api/menu";
+import { menu as menuData } from "../api/menu";
 
 export const MenuContext = createContext([]);
 
 export const MenuProvider = ({ children }) => {
-  const [menuData, setMenuData] = useState([]);
+  const [menu, setMenu] = useState([]);
 
   useEffect(() => {
-    setMenuData(menu.data);
+    setMenu(menuData.data);
   }, []);
+
   return (
-    <MenuContext.Provider value={{ menuData, setMenuData }}>
+    <MenuContext.Provider value={{ menuData: menu }}>
       {children}
     </MenuContext.Provider>
   );

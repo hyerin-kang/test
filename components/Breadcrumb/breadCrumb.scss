@@ -1,0 +1,14 @@
+.bread-crumb {
+  display: flex;
+  color: #fff;
+  gap: 5px;
+  span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    opacity: 0.5;
+    &:last-child {
+      opacity: 1;
+    }
+  }
+}
