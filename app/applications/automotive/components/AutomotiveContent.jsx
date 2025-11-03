@@ -15,7 +15,7 @@ const TABS = [
   },
 ];
 export const AutomotiveContent = () => {
-  const [tab, setTab] = useState("Exterior");
+  const [tab, setTab] = useState("exterior");
   return (
     <div id="AutomotiveContent">
       <TabArea tab={tab} setTab={setTab} tabs={TABS} />

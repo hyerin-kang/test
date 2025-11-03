@@ -2,11 +2,7 @@
   //   padding: 40px 20px;
   position: relative;
   .tab-bg-img {
-    // position: absolute;
-    // top: 0;
-    // left: 0;
-    // z-index: -1;
-    // height: fit-content;
+    transition: ease-in-out 5s;
   }
   .top-box {
     position: absolute;
@@ -38,7 +34,7 @@
       background: green;
     }
   }
-  .tab.interior {
-    color: #fff !important;
+  &.isWhite {
+    color: #fff;
   }
 }
