@@ -1,0 +1,40 @@
+.portfolio {
+  padding: 20px;
+  background: black;
+  .title-area {
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    .title {
+      font-size: 30px;
+      font-weight: 900;
+      flex-grow: 1;
+    }
+    & > h1,
+    p {
+      flex-basis: 50%;
+      flex-grow: 1;
+    }
+  }
+  .number-area {
+    position: relative;
+    padding-top: 50px;
+    .case-count {
+      position: absolute;
+      bottom: 100px;
+      display: flex;
+      width: 100%;
+      [class$="-data"] {
+        flex-basis: 50%;
+        p {
+          color: rgb(118, 228, 118);
+        }
+        div {
+          color: #fff;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
