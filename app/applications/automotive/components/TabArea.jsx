@@ -2,7 +2,6 @@ import React from "react";
 import "./../automotive.scss";
 
 export const TabArea = ({ tab, setTab, tabs }) => {
-  console.log(tab, "tab");
   return (
     <div className={`top-box ${tab == "interior" ? "isWhite" : ""}`}>
       <div className="title-area">

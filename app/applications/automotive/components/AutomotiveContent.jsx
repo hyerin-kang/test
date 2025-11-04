@@ -5,6 +5,7 @@ import { TabArea } from "./TabArea";
 import CarPNG from "@/public/images/content/automotiveCarBg.png";
 import InteriorBGPNG from "@/public/images/content/interiorBG.png";
 import Image from "next/image";
+import { AUTOMOTIVE_PINS } from "../data/automotivePins";
 
 const TABS = [
   { label: "Exterior", key: "exterior", image: CarPNG },
@@ -25,6 +26,9 @@ export const AutomotiveContent = () => {
           alt="Automotive background img"
         />
       </div>
+      {AUTOMOTIVE_PINS.map((pin) => {
+        return <div key={pin.id}>{pin.title}</div>;
+      })}
       <NewsArea />
     </div>
   );
