@@ -4,6 +4,7 @@ import Link from "next/link";
 import icoLink from "@/public/images/icon/ico-link-arrow.svg";
 import "./application.scss";
 import { applicationData } from "./data.js";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
 export default function Application() {
   return (
@@ -16,7 +17,14 @@ export default function Application() {
           color: "red",
         }}
       >
-        123123
+        <div style={{ width: 300, height: 300 }}>
+          <DotLottieReact
+            src="/lottie/SquareBox.lottie"
+            // animationData={lottieJson}
+            loop
+            autoplay
+          />
+        </div>
       </div>
       <div style={{ position: "sticky" }}>
         {applicationData.map((item, index) => {
