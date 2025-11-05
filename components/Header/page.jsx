@@ -25,15 +25,20 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    // 초기 스크롤 위치를 바로 반영
+    const initialScrollY = window.scrollY;
+    setLastScrollY(initialScrollY);
+    setIsScrolled(initialScrollY > 100);
+    setIsScrollDown(false);
+
+    //스크롤이벤트
     const handleScroll = () => {
       const currentY = window.scrollY;
-
       // 스크롤 방향 감지
       setIsScrollDown(currentY > lastScrollY);
 
       // 스크롤 여부 감지
       setIsScrolled(currentY > 100);
-
       setLastScrollY(currentY);
     };
 
