@@ -10,16 +10,18 @@
     }
   }
   .top-box {
-    // position: absolute;
+    position: absolute;
+    z-index: 10;
     top: 20px;
     left: 20px;
+    width: calc(100% - 40px);
     &.isWhite {
-      //   color: #fff;
+      color: #fff;
     }
     .title-area {
       display: flex;
       justify-content: space-between;
-      width: 100%;
+      padding: 20px;
       margin-bottom: 20px;
       .title {
         font-size: 40px;
@@ -27,7 +29,6 @@
       }
       .sub-title {
         width: 50%;
-        padding-right: 20px;
       }
     }
   }
@@ -98,7 +99,6 @@
       content: "";
       width: 8px;
       height: 8px;
-      //   background: green;
       border: 1px solid green;
       border-radius: 100%;
       display: inline-flex;

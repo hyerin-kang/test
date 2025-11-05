@@ -1,3 +1,15 @@
+import CarPNG from "@/public/images/content/automotiveCarBg.png";
+import InteriorBGPNG from "@/public/images/content/interiorBG.png";
+
+export const AUTOMOTIVE_TABS = [
+  { label: "Exterior", key: "exterior", image: CarPNG },
+  {
+    label: "Interior",
+    key: "interior",
+    image: InteriorBGPNG,
+  },
+];
+
 export const AUTOMOTIVE_PINS = {
   exterior: [
     {
