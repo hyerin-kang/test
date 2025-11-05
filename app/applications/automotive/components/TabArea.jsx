@@ -1,4 +1,3 @@
-import React from "react";
 import "./../automotive.scss";
 
 export const TabArea = ({ tab, setTab, tabs }) => {

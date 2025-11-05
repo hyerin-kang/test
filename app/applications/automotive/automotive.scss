@@ -1,8 +1,13 @@
 #AutomotiveContent {
-  //   padding: 40px 20px;
   position: relative;
   .tab-bg-img {
-    transition: ease-in-out 5s;
+    position: relative;
+
+    image {
+      width: 100%;
+      opacity: 1;
+      transition: opacity 0.8s ease-in-out;
+    }
   }
   .top-box {
     // position: absolute;
@@ -34,6 +39,8 @@
       padding: 10px;
       border-radius: 10px;
       color: #fff;
+      position: relative;
+      z-index: 10;
       p.title {
         display: flex;
         align-items: center;
@@ -53,21 +60,34 @@
       }
     }
   }
-  .pin-group {
+  .pin-point {
+    width: 24px;
+    height: 24px;
+    background: url("/images/icon/ico-plus-circle.svg") center no-repeat;
+    cursor: pointer;
+  }
+  .circle {
     position: absolute;
-    .ani-circle {
-      .circle {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 0;
-        height: 0;
-        border: 2px solid rgba(48, 174, 86, 1);
-        border-radius: 50%;
-        opacity: 20%;
-        transform: translate(-50%, -50%);
-        animation: expand 1.5s infinite;
-      }
+    top: 50%;
+    left: 50%;
+    width: 0px;
+    height: 0px;
+    border: 2px solid rgb(48, 174, 86);
+    border-radius: 50%;
+    opacity: 0.2;
+    transform: translate(-50%, -50%);
+    animation: 1.5s ease 0s infinite normal none running expand;
+  }
+  @keyframes expand {
+    0% {
+      width: 24px;
+      height: 24px;
+      opacity: 1;
+    }
+    100% {
+      width: 80px;
+      height: 80px;
+      opacity: 0;
     }
   }
 }
