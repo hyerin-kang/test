@@ -5,11 +5,11 @@
     transition: ease-in-out 5s;
   }
   .top-box {
-    position: absolute;
+    // position: absolute;
     top: 20px;
     left: 20px;
     &.isWhite {
-      color: #fff;
+      //   color: #fff;
     }
     .title-area {
       display: flex;
@@ -23,6 +23,50 @@
       .sub-title {
         width: 50%;
         padding-right: 20px;
+      }
+    }
+  }
+  .pins-area {
+    .pin {
+      display: block;
+      width: 200px;
+      background: green;
+      padding: 10px;
+      border-radius: 10px;
+      color: #fff;
+      p.title {
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #fff;
+        justify-content: space-between;
+        padding-bottom: 5px;
+        &:after {
+          content: "+";
+        }
+      }
+      ul.pin-list {
+        padding: 10px 10px 0 10px;
+        font-size: 12px;
+        li + li {
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+  .pin-group {
+    position: absolute;
+    .ani-circle {
+      .circle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        border: 2px solid rgba(48, 174, 86, 1);
+        border-radius: 50%;
+        opacity: 20%;
+        transform: translate(-50%, -50%);
+        animation: expand 1.5s infinite;
       }
     }
   }

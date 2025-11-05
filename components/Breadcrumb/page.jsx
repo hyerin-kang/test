@@ -2,7 +2,6 @@ import Link from "next/link";
 import "./../Breadcrumb/breadCrumb.scss";
 
 export const Breadcrumb = ({ data }) => {
-  console.log(data, "data");
   return (
     <div className="bread-crumb">
       {data?.map((item, index) =>
