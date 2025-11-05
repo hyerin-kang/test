@@ -17,14 +17,15 @@ export default function Application() {
           color: "red",
         }}
       >
-        <div style={{ width: 300, height: 300 }}>
+        {/* <div style={{ width: 300, height: 300 }}>
           <DotLottieReact
             src="/lottie/SquareBox.lottie"
             // animationData={lottieJson}
             loop
             autoplay
           />
-        </div>
+        </div> */}
+        MainBanner
       </div>
       <div style={{ position: "sticky" }}>
         {applicationData.map((item, index) => {

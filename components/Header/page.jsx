@@ -24,7 +24,6 @@ const Header = () => {
   const [isScrollDown, setIsScrollDown] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  console.log(lastScrollY, "lastScrollY");
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
