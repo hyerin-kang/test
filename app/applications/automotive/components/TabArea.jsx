@@ -68,8 +68,7 @@ export const TabArea = () => {
               ? AUTOMOTIVE_TABS[0].image
               : AUTOMOTIVE_TABS[1].image
           }
-          alt={`${tab} + "-image"
-          `}
+          alt={`${tab}-image`}
         />
       </div>
     </>
