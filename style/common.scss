@@ -3,3 +3,14 @@
   margin: 0 auto;
   max-width: 100%;
 }
+
+.content-title {
+  font-family: "Inter", sans-serif;
+  font-size: 3.75rem;
+  font-weight: 500;
+  letter-spacing: -0.8px;
+  @media (min-width: 640px) {
+    font-weight: 400;
+    letter-spacing: -2.4px;
+  }
+}
