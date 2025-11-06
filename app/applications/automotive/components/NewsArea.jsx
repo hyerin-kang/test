@@ -7,14 +7,15 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { useEffect, useState } from "react";
+import { TextReveal } from "../../../../components/TextReveal/page";
 
 const fetcher = (url) => axiosInstance.get(url);
 
 export const NewsArea = () => {
   //슬라이드 관련
   const [relatedNews, setRelatedNews] = useState([]); // 뉴스 리스트
-  const [currentPage, setCurrentPage] = useState(1); //초기세팅 1 (1/2 표시)
   const [swiperRef, setSwiperRef] = useState(null); //클릭시 슬라이드 이동
+  const [index, setIndex] = useState(1); //모바일 슬라이드 네비게이션
 
   //데이터 가져오기
   const {
@@ -53,28 +54,44 @@ export const NewsArea = () => {
   }
 
   return (
-    <div>
-      <p className="content-title">Related News</p>
-      {/* 슬라이드 목록이 2개 이상이면 화살표, 인덱스 노출하기 */}
-      {relatedNews?.length > 2 && (
-        <>
-          <span className="text-lg font-medium">
-            {currentPage} / {Math.ceil(relatedNews.length / 2)}
-          </span>
-          <div onClick={() => swiperRef.slideTo(swiperRef.activeIndex - 2)}>
-            ←
+    <TextReveal className="mt-20">
+      <div className="flex p-10 justify-between items-center">
+        <p className="content-title">Related News</p>
+        {/* 슬라이드 목록이 2개 이상이면 화살표, 인덱스 노출하기 */}
+        {relatedNews?.length > 2 && (
+          <div className=" hidden md:block">
+            <div className="flex items-center gap-3">
+              <span className="text-lg font-medium">
+                {Math.ceil(index / 2) < 10 ? 0 : ""}
+                {Math.ceil((index + 1) / 2)}/{" "}
+                {relatedNews?.length > 18
+                  ? Math.ceil(relatedNews?.length / 2)
+                  : "0" + Math.ceil(relatedNews?.length / 2)}
+              </span>
+              <div
+                onClick={() => swiperRef.slideTo(swiperRef.activeIndex - 2)}
+                className="border w-10 h-10 flex items-center justify-center rounded-full cursor-pointer border-green-600"
+              >
+                &lt;
+              </div>
+
+              <div
+                onClick={() => swiperRef.slideTo(swiperRef.activeIndex + 2)}
+                className="border w-10 h-10 flex items-center justify-center rounded-full cursor-pointer border-green-600"
+              >
+                &gt;
+              </div>
+            </div>
           </div>
-          <div onClick={() => swiperRef.slideTo(swiperRef.activeIndex + 2)}>
-            →
-          </div>
-        </>
-      )}
+        )}
+      </div>
       <Swiper
         ref={swiperRef}
         onSwiper={setSwiperRef}
-        onSlideChange={(swiper) =>
-          setCurrentPage(Math.floor(swiper.activeIndex / 2) + 1)
-        }
+        onSlideChange={(swiper) => {
+          setSwiperRef(swiper);
+          setIndex(swiper?.activeIndex + 1);
+        }}
         spaceBetween={0}
         breakpoints={{
           375: { slidesPerView: 1, slidesPerGroup: 1 },
@@ -97,6 +114,18 @@ export const NewsArea = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </div>
+
+      <div className="flex sm:gap-2.5 gap-1 mt-10 mb-[120px] items-center justify-center md:hidden">
+        {relatedNews?.map((_, i) => (
+          <div onClick={() => swiperRef.slideTo(i)} key={i}>
+            {i === index - 1 ? (
+              <div className="sm:w-[30px] sm:h-2.5 sm:rounded-[5px] w-5 h-1.5 rounded-[3px] bg-[#30AE56]"></div>
+            ) : (
+              <div className="sm:w-2.5 sm:h-2.5 sm:rounded-[5px] w-1.5 h-1.5 rounded-[3px] bg-[#DDDDDD]"></div>
+            )}
+          </div>
+        ))}
+      </div>
+    </TextReveal>
   );
 };
