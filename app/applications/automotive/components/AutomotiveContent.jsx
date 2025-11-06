@@ -3,13 +3,17 @@ import { NewsArea } from "./NewsArea";
 import { TabArea } from "./TabArea";
 import "./../automotive.scss";
 import { IntroArea } from "./IntroArea";
+import { RelatedNews } from "../../../../components/RelatedNews/page";
 
 export const AutomotiveContent = () => {
+  const dataPath = "/kr/application/news/automotive";
   return (
     <div id="AutomotiveContent">
       <TabArea />
       <IntroArea />
-      <NewsArea />
+      {/* <NewsArea /> */}
+
+      <RelatedNews dataPath={dataPath} />
     </div>
   );
 };
