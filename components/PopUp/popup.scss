@@ -1,0 +1,51 @@
+.popup {
+  &::before {
+    content: "";
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+}
+.inner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 500px;
+  background: white;
+  z-index: 999;
+  padding: 20px;
+  border-radius: 8px;
+  .bottom-area {
+    position: absolute;
+    bottom: -40px;
+    right: 0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    button {
+      cursor: pointer;
+    }
+  }
+} /* popup.scss */
+
+label {
+  display: flex;
+  align-items: center;
+
+  .MuiCheckbox-root {
+    color: white;
+
+    &.Mui-checked {
+      color: white;
+    }
+  }
+}

@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header/page";
 import "@/style/common.scss";
 import { MenuProvider } from "@/context/MenuContext";
+import { ChakraProvider } from "@chakra-ui/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
