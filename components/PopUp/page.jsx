@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState } from "react";
-
 import IcoClose from "@/public/images/icon/ico-close.svg";
 import Image from "next/image";
 import Checkbox from "@mui/material/Checkbox";
@@ -16,6 +15,7 @@ import "./popup.scss";
 import DefaultThumb from "@/public/images/content/defult_thumb.svg";
 
 const fetcher = (url) => axiosInstance.get(url).then((res) => res);
+
 export default function PopUp() {
   const [show, setShow] = useState(null);
   const [checked, setChecked] = useState(false);
@@ -29,8 +29,6 @@ export default function PopUp() {
     `/mediaCenter/newsroom?recordCountPerPage=3`,
     fetcher
   );
-
-  console.log(recentNewsData, "recentNewsData");
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
@@ -64,7 +62,7 @@ export default function PopUp() {
               onSwiper={(swiper) => setSwiperRef(swiper)}
               loop={true}
               pagination={true}
-              // autoplay={{ delay: 2500, disableOnInteraction: false }}
+              autoplay={{ delay: 2500, disableOnInteraction: false }}
               onSlideChange={(swiper) => {
                 setSwiperRef(swiper);
                 setIndex(swiper?.activeIndex + 1);
@@ -104,13 +102,7 @@ export default function PopUp() {
             </Swiper>
             <div className="bottom-area">
               <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={checked}
-                    onChange={handleChange}
-                    // onClick={closeToday}
-                  />
-                }
+                control={<Checkbox checked={checked} onChange={handleChange} />}
                 label="오늘하루 보지않기"
               />
               <button
