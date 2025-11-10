@@ -20,8 +20,27 @@
   max-width: 500px;
   background: white;
   z-index: 999;
-  padding: 20px;
   border-radius: 8px;
+  .img-area {
+    padding: 20px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #ccc;
+  }
+  .text-area {
+    padding: 20px;
+    .category,
+    .time {
+      font-size: 14px;
+    }
+    .title {
+      margin-bottom: 10px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .time {
+      color: #a7a7a7;
+    }
+  }
   .bottom-area {
     position: absolute;
     bottom: -40px;
@@ -35,8 +54,14 @@
       cursor: pointer;
     }
   }
-} /* popup.scss */
+}
 
+.swiper-pagination {
+  bottom: 128px !important;
+  width: fit-content !important;
+  left: auto !important;
+  right: 10px !important;
+}
 label {
   display: flex;
   align-items: center;
