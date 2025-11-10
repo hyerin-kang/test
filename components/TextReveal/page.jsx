@@ -3,11 +3,11 @@
 import { motion } from "framer-motion";
 import { useRef } from "react";
 
-export const TextReveal = ({ children }) => {
+export const TextReveal = ({ children, className }) => {
   const ref = useRef(null);
 
   return (
-    <div ref={ref}>
+    <div ref={ref} className={className}>
       <motion.div
         initial={{ opacity: 0, y: 80 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -6,7 +6,7 @@ import { IntroArea } from "./IntroArea";
 import { RelatedNews } from "../../../../components/RelatedNews/page";
 
 export const AutomotiveContent = () => {
-  const dataPath = "/kr/application/news/automotive";
+  const dataPath = "/application/news/automotive";
   return (
     <div id="AutomotiveContent">
       <TabArea />
