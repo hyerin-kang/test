@@ -7,12 +7,25 @@
   .right {
     grid-column: span 3 / span 3;
   }
+  .title-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .mySwiper {
-  background: red;
-  position: absolute;
-  top: 20px;
-  left: 20px;
+  // background: red;
+  // position: absolute;
+  // bottom: 20px;
+  // left: 20px;
+  // width: calc(100% - 40px);
   //   width: calc;
+  .img {
+    width: 200px;
+    height: 100px;
+    border: 1;
+    background: rgb(255 255 255 / 0.1);
+    border: 1px solid rgb(255 255 255 / 0.1);
+  }
 }

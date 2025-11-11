@@ -92,7 +92,7 @@ export default function page() {
                 <p className="content-title">{item.title}</p>
                 <p>{item.desc}</p>
 
-                <div>
+                <div className="relative">
                   <SlideComponent data={item?.child} keyName={item?.key} />
                   <Image src={renderBG(item?.key)} alt={item?.key} />
                 </div>

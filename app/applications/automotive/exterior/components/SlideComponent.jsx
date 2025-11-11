@@ -21,31 +21,9 @@ const SlideComponent = ({ data, keyName }) => {
   };
 
   return (
-    <div className="relative">
-      <Swiper
-        ref={swiperRef}
-        onSwiper={(swiper) => {
-          setSwiperRef(swiper);
-        }}
-        spaceBetween={0}
-        onSlideChange={(swiper) => {
-          setSwiperRef(swiper);
-          setIndex(swiper?.activeIndex + 1);
-        }}
-        className="mySwiper"
-        breakpoints={{
-          0: {
-            spaceBetween: 8,
-            slidesPerGroup: 1,
-          },
-          768: {
-            slidesPerView: 3,
-            spaceBetween: 12,
-            slidesPerGroup: 3,
-          },
-        }}
-        modules={[Pagination, Navigation]}
-      >
+    <>
+      <div className="title-area">
+        <p>Main Product</p>
         {data.length > 3 && (
           <div className="lg:flex hidden items-center gap-3">
             <div className="text-subtext">
@@ -101,31 +79,57 @@ const SlideComponent = ({ data, keyName }) => {
             </div>
           </div>
         )}
+      </div>
+      <Swiper
+        ref={swiperRef}
+        onSwiper={(swiper) => {
+          setSwiperRef(swiper);
+        }}
+        spaceBetween={0}
+        onSlideChange={(swiper) => {
+          setSwiperRef(swiper);
+          setIndex(swiper?.activeIndex + 1);
+        }}
+        className="mySwiper"
+        breakpoints={{
+          0: {
+            spaceBetween: 8,
+            slidesPerGroup: 1,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 12,
+            slidesPerGroup: 3,
+          },
+        }}
+        modules={[Pagination, Navigation]}
+      >
         {renderData(data)?.map((product, i) => {
           return (
             <SwiperSlide key={product?.key || `empty-${i}`}>
               {product.path ? (
                 <Link key={product.key} href={product.path}>
-                  {product.title}
-
                   {product.image ? (
-                    <Image
-                      src={product.image}
-                      alt={product.title}
-                      width={320}
-                      height={0}
-                      //   className="w-full h-full object-contain"
-                    />
+                    <div className="img">
+                      <Image
+                        src={product.image}
+                        alt={product.title}
+                        width={320}
+                        height={0}
+                        className="w-full h-full object-contain"
+                      />
+                    </div>
                   ) : null}
                 </Link>
               ) : (
-                <div className="">empty</div> //빈칸
+                <div className=""></div> //빈칸
               )}
+              <p>{product.title}</p>
             </SwiperSlide>
           );
         })}
       </Swiper>
-    </div>
+    </>
   );
 };
 
